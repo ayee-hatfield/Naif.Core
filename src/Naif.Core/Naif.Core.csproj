@@ -55,9 +55,6 @@
     <Compile Include="ComponentModel\TableNameAttribute.cs" />
     <Compile Include="ComponentModel\Util.cs" />
     <Compile Include="Contracts\Requires.cs" />
-    <Compile Include="Data\IDataContext.cs" />
-    <Compile Include="Data\IRepository.cs" />
-    <Compile Include="Data\RepositoryBase.cs" />
     <Compile Include="Locks\SimpleLock.cs" />
     <Compile Include="Resources\CommonErrors.Designer.cs">
       <AutoGen>True</AutoGen>
