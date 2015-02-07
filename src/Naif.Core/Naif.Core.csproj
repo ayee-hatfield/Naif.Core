@@ -49,11 +49,6 @@
     <Compile Include="Collections\SynchronizedList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ComponentModel\CacheableAttribute.cs" />
-    <Compile Include="ComponentModel\ColumnNameAttribute.cs" />
-    <Compile Include="ComponentModel\PrimaryKeyAttribute.cs" />
-    <Compile Include="ComponentModel\TableNameAttribute.cs" />
-    <Compile Include="ComponentModel\Util.cs" />
     <Compile Include="Contracts\Requires.cs" />
     <Compile Include="Locks\SimpleLock.cs" />
     <Compile Include="Resources\CommonErrors.Designer.cs">
