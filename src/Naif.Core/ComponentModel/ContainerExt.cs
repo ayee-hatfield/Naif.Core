@@ -94,7 +94,7 @@ namespace Naif.Core.ComponentModel
         {
             Requires.NotNull("type", type);
 
-            var constructors = type.GetConstructors();
+            var constructors = type.GetTypeInfo().DeclaredConstructors.ToList();
 
             if (constructors == null || !constructors.Any())
             {

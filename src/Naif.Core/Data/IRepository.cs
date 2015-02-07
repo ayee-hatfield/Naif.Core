@@ -15,10 +15,13 @@ namespace Naif.Core.Data
         IEnumerable<T> GetAll();
 
         T GetById<TProperty>(TProperty id);
+
         IEnumerable<T> GetByProperty<TProperty>(string propertyName, TProperty propertyValue);
 
         void Add(T item);
+
         void Delete(T item);
+
         void Update(T item);
     }
 }

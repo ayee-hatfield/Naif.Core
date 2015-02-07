@@ -15,7 +15,9 @@ namespace Naif.Core.Data
         IRepository<T> GetRepository<T>() where T : class;
 
         void BeginTransaction();
+
         void Commit();
+
         void RollbackTransaction();
     }
 }
