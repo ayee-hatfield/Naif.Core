@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Naif.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Naif.Core")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Naif.Core")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Charles Nurse ©  2015")]
+[assembly: AssemblyTrademark("Naif")]
 [assembly: AssemblyCulture("")]
 
 // Version information for an assembly consists of the following four values:
