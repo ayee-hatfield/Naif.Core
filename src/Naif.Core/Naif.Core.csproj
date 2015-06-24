@@ -37,6 +37,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Collections\IPagedList.cs" />
+    <Compile Include="Collections\PagedList.cs" />
+    <Compile Include="Collections\PageSelector.cs" />
+    <Compile Include="Collections\PagingExtensions.cs" />
     <Compile Include="ComponentModel\Container.cs" />
     <Compile Include="ComponentModel\ContainerExt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,8 +68,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

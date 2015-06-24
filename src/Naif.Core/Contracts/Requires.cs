@@ -8,6 +8,7 @@
 
 using System;
 using System.Globalization;
+using System.Reflection;
 using Naif.Core.Resources;
 
 namespace Naif.Core.Contracts
@@ -38,6 +39,14 @@ namespace Naif.Core.Contracts
             }
         }
 
+        public static void NotNull<T>(T item)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException(typeof(T).Name);
+            }
+        }
+
         public static void NotNull(string parameter, object value)
         {
             if (value == null)
@@ -62,6 +71,24 @@ namespace Naif.Core.Contracts
             }
         }
 
+        public static void PropertyNotNegative<T>(T item, string propertyName)
+        {
+            //Check first if the item is null
+            NotNull(item);
+
+            var type = typeof(T);
+            var typeInfo = type.GetTypeInfo();
+            var property = typeInfo.GetDeclaredProperty(propertyName);
+            var propertyValue = property.GetValue(item);
+
+            var intValue = (int)propertyValue;
+
+            if (intValue < 0)
+            {
+                throw new IndexOutOfRangeException(String.Format(CultureInfo.CurrentCulture, CommonErrors.PropertyCannotBeNegative, type.Name, propertyName));
+            }
+        }
+
         public static void PropertyNotNegative(string parameter, string propertyName, int propertyValue)
         {
             if (propertyValue < 0)
@@ -70,11 +97,44 @@ namespace Naif.Core.Contracts
             }
         }
 
+        public static void PropertyNotNull<T>(T item, string propertyName) where T : class
+        {
+            //Check first if the item is null
+            NotNull(item);
+
+            var type = typeof(T);
+            var typeInfo = type.GetTypeInfo();
+            var property = typeInfo.GetDeclaredProperty(propertyName);
+            var propertyValue = property.GetValue(item);
+
+            if (propertyValue == null)
+            {
+                throw new ArgumentNullException(propertyName);
+            }
+        }
+
         public static void PropertyNotNullOrEmpty(string parameter, string propertyName, string propertyValue)
         {
             if (String.IsNullOrEmpty(propertyValue))
             {
                 throw new ArgumentException(String.Format(CultureInfo.CurrentCulture, CommonErrors.PropertyCannotBeNullOrEmpty, parameter, propertyName), parameter);
+            }
+        }
+
+        public static void PropertyNotNullOrEmpty<T>(T item, string propertyName)
+        {
+            //Check first if the item is null
+            NotNull(item);
+
+            var type = typeof(T);
+            var typeInfo = type.GetTypeInfo();
+            var property = typeInfo.GetDeclaredProperty(propertyName);
+            var propertyValue = property.GetValue(item);
+            var stringValue = propertyValue as string;
+
+            if (string.IsNullOrEmpty(stringValue))
+            {
+                throw new ArgumentException(String.Format(CultureInfo.CurrentCulture, CommonErrors.PropertyCannotBeNullOrEmpty, type.Name, propertyName), type.Name);
             }
         }
     }
